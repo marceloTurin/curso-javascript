@@ -23,9 +23,31 @@ var altura = tdAltura.textContent;
 //Seleciona a td imc do paciente
 var tdImc = paciente.querySelector(".info-imc");
 
-//Calcula o IMC
-var imc = peso / (altura * altura);
+//Variaveis de verificação
+var pesoEhValido = true;
+var alturaEhValida = true;
 
-// Coloca o conteudo de texto da var imc na tdImc
-tdImc.textContent = imc;
+//Verifica Peso
+if (peso <= 0 || peso >= 1000) {
+	console.log("Peso invalido");
+	pesoEhValido = false;
+	tdImc.textContent = "Peso Invalido"
+}
+
+//Verifica Altura
+if (altura <= 0 || altura >= 3.00) {
+	console.log("Altura invalida");
+	alturaEhValida = false;
+	tdImc.textContent = "Altura invalida";
+}
+
+//Verifica se as variaveis de verificação são true para fazer o calculo de IMC
+if (alturaEhValida && pesoEhValido) {
+	//Calcula o IMC
+	var imc = peso / (altura * altura);
+
+	// Coloca o conteudo de texto da var imc na tdImc
+	tdImc.textContent = imc;
+}
+
 
