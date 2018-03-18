@@ -20,8 +20,12 @@ var tdAltura = paciente.querySelector(".info-altura");
 //Seleciona o conteudo de texto da td altura
 var altura = tdAltura.textContent;
 
+//Seleciona a td imc do paciente
+var tdImc = paciente.querySelector(".info-imc");
+
 //Calcula o IMC
 var imc = peso / (altura * altura);
 
-console.log(imc);
+// Coloca o conteudo de texto da var imc na tdImc
+tdImc.textContent = imc;
 
