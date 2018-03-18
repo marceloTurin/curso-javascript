@@ -6,20 +6,9 @@
 		<link rel="icon" href="favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" type="text/css" href="css/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/index.css">
-
-		<script type="text/javascript">
-			//Exibe um alerta no navegador
-			alert("Olá mundo");
-
-			//Exibe a mensagem no console do navegador
-			console.log("Olá mundo");
-		</script>
-
 	</head>
 	<body>
-
-
-
+	
 		<header>
 			<div class="container">
 				<h1>Aparecida Nutrição</h1>
@@ -83,5 +72,18 @@
 			</section>
 		</main>
 
+		<!--Colocar a tag script no final da pagina para ele a tag script possa interpetrar a pagina toda  --> 
+		<script type="text/javascript">
+			
+			//querySelector seleciona um elemento html
+			var titulo = document.querySelector("h1")
+			console.log(titulo);
+
+			//textContent seleciona o conteúdo de texto da tag/variavel
+			console.log(titulo.textContent);
+			titulo.textContent = "Aparecida Nutricionista"
+
+
+		</script>
 	</body>
 </html>
