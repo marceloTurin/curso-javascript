@@ -37,7 +37,9 @@ for ( var i = 0; i < pacientes.length ; i++){
 	if (peso <= 0 || peso >= 1000) {
 		console.log("Peso invalido");
 		pesoEhValido = false;
-		tdImc.textContent = "Peso Invalido"
+		tdImc.textContent = "Peso Invalido";
+		//Adiciona uma classe css
+		paciente.classList.add("paciente-invalido");
 	}
 
 	//Verifica Altura
@@ -45,6 +47,9 @@ for ( var i = 0; i < pacientes.length ; i++){
 		console.log("Altura invalida");
 		alturaEhValida = false;
 		tdImc.textContent = "Altura invalida";
+		//Adiciona um estilo css
+		paciente.style.backgroundColor = "lightcoral";
+
 	}
 
 	//Verifica se as variaveis de verificação são true para fazer o calculo de IMC
