@@ -81,6 +81,8 @@ function mostraMensagem(){
 
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
-botaoAdicionar.addEventListener("click",function(){
-	console.log("Oi cliquei no botão");
+botaoAdicionar.addEventListener("click",function(event){
+	//Não permite que o vento faça seu comportamento padrão, e reagira conforme o que pedimos no evento
+	event.preventDefault();
+	console.log("Oi eu sou um botão e fui clicado");
 });
