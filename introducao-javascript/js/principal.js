@@ -64,3 +64,23 @@ for ( var i = 0; i < pacientes.length ; i++){
 	}
 }
 
+//escuta o vento click quando o usuário clicar no titulo
+
+//primeiro versão  usando uma função anônima
+titulo.addEventListener("click",function(){
+	console.log("Olha so posso chamar uma função anonima");
+});
+
+//segunda versão com uma função nomeada
+titulo.addEventListener("click",mostraMensagem);
+
+function mostraMensagem(){
+	console.log("Ola eu fui clicado!");
+}
+
+
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+
+botaoAdicionar.addEventListener("click",function(){
+	console.log("Oi cliquei no botão");
+});
