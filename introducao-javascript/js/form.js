@@ -22,10 +22,11 @@ botaoAdicionar.addEventListener("click",function(event){
 	var form = document.querySelector("#form-adiciona");
 
 	//Pega os valores do formulario da tag name do formulário
-	var nome = form.nome.value;
-	var peso = form.peso.value;
-	var altura = form.altura.value;
-	var gordura = form.gordura.value;
+
+	//Chama a função que obtem os dados do paciente e coloca em um objeto
+	var paciente = obtemPacienteDoFormulario(form);
+	console.log(paciente);
+
 
 	//Cria os elemto tr e td 
 	var pacienteTr = document.createElement("tr");
@@ -73,3 +74,19 @@ function mostraMensagem(){
 	console.log("Ola eu fui clicado!");
 }
 
+
+
+
+function obtemPacienteDoFormulario(form){
+
+	var paciente = {
+		nome: form.nome.value,
+		peso: form.peso.value,
+		altura: form.altura.value,
+		gordura: form.gordura.value,
+		imc :calculaImc(form.peso.value, form.altura.value)
+	}
+
+	return paciente;
+
+}
