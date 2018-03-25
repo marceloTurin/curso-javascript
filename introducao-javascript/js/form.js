@@ -159,7 +159,7 @@ function exibeMensagemDeErro(erros){
 	var ul = document.querySelector("#mensagens-erro");
 	//Limpa as mensagens de erro
 	ul.innerHTML = "";
-	//forEach
+	// o forEach pega o elemento um de cada vez e faz a função 
 	erros.forEach(function(erro){
 		var li = document.createElement("li");
 		li.textContent = erro;
