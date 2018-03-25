@@ -16,7 +16,7 @@ function mostraMensagem(){
 var botaoAdicionar = document.querySelector("#adicionar-paciente");
 
 botaoAdicionar.addEventListener("click",function(event){
-	//Não permite que o vento faça seu comportamento padrão, e reagira conforme o que pedimos no evento
+	//Não permite que o evento faça seu comportamento padrão, e reagira conforme o que pedimos no evento
 	event.preventDefault();
 	
 	var form = document.querySelector("#form-adiciona");
@@ -30,9 +30,14 @@ botaoAdicionar.addEventListener("click",function(event){
 
 	var erros = validaPaciente(paciente);
 
+	console.log(erros);
+	//Se o array erros retorna maior que 0 
 	if (erros.length > 0) {
-		var mensagemErro = document.querySelector("#mensagem-erro");
-		mensagemErro.textContent = erros;
+
+		//Função que exibe mensagem de erro 
+		exibeMensagemDeErro(erros);
+
+		//O return vazio faz que a função seja pulada;
 		return;
 	}
 
@@ -42,6 +47,8 @@ botaoAdicionar.addEventListener("click",function(event){
 
 	//Reseta o formulario limpando os campos
 	form.reset();
+	var mensagensErros = document.querySelector("#mensagens-erro");
+	mensagensErros.innerHTML = "";
 
 });
 
@@ -117,6 +124,10 @@ function validaPaciente(paciente){
 	//Array com as mensagens de erro
 	var erros =[];
 
+	if (paciente.nome.length ==0) {
+		erros.push("O nome não pode ser em branco");
+	}
+
 	//Verifica se o peso é invalido
 	if (!validaPeso(paciente.peso)){
 		erros.push("Peso é inválido");
@@ -126,8 +137,38 @@ function validaPaciente(paciente){
 	if (!validaAltura(paciente.altura)) {
 		erros.push("Altura é inválida");
 	}
+
+	if (paciente.gordura.length == 0) {
+		erros.push("A gordura não pode ser em branco");
+	}
+
+	if (paciente.peso.length == 0) {
+		erros.push("A gordura não pode ser em branco");
+	}
+	if (paciente.altura.length == 0) {
+		erros.push("A altura não pode ser em branco");
+	}
 	
 	//Retorna as mensagens de erros, caso não tenha erro retorna vazio
-	return.erros;
+	return erros;
+
+}
+
+//Função que exibe mensagem de erro passando como parametro o array de erros
+function exibeMensagemDeErro(erros){
+	var ul = document.querySelector("#mensagens-erro");
+	//Limpa as mensagens de erro
+	ul.innerHTML = "";
+	//forEach
+	erros.forEach(function(erro){
+		var li = document.createElement("li");
+		li.textContent = erro;
+		br = document.createElement("br");
+		ul.appendChild(li);
+		ul.appendChild(br);
+		
+	});
+
+
 
 }
