@@ -35,7 +35,7 @@ botaoAdicionar.addEventListener("click",function(event){
 	if (erros.length > 0) {
 
 		//Função que exibe mensagem de erro 
-		exibeMensagemDeErro(erros);
+		exibeMensagemDeErro(erros);k
 
 		//O return vazio faz que a função seja pulada;
 		return;
