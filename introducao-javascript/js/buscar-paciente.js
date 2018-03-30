@@ -8,17 +8,32 @@ botaoAdicionar.addEventListener("click",function(){
 
 	//Carrega a requisição
 	xhr.addEventListener("load", function(){
+	var erroAjax = document.querySelector("#erro-ajax");
+		
+		if (xhr.status == 200) {
 
-		//Recebe o texto da requisição
-		var resposta = xhr.responseText;
+			erroAjax.classList.add("invisivel");
 
-		//Pega o texto da requição e passa  ele para um objeto JSON ou seja um array
-		var pacientes = JSON.parse(resposta);
+			//Recebe o texto da requisição
+			var resposta = xhr.responseText;
 
-		//Adiciona os  pacientes na tabela
-		pacientes.forEach(function(paciente){
-			adicionaPacienteNaTabela(paciente);
-		})
+			//Pega o texto da requição e passa  ele para um objeto JSON ou seja um array
+			var pacientes = JSON.parse(resposta);
+
+			//Adiciona os  pacientes na tabela
+			pacientes.forEach(function(paciente){
+				adicionaPacienteNaTabela(paciente);
+			});
+		}
+		else{
+			//Exibe os status de erro do ajax
+			console.log(xhr.status);
+			console.log(xhr.responseText);
+			
+			erroAjax.classList.remove("invisivel")
+		}
+
+		
 	})
 	xhr.send(); //Envia a requisição
 });
