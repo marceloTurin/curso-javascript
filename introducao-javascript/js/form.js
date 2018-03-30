@@ -25,8 +25,7 @@ botaoAdicionar.addEventListener("click",function(event){
 	//Chama a função que obtem os dados do paciente e coloca em um objeto
 	var paciente = obtemPacienteDoFormulario(form);
 
-	//Função que criar a tr do paciente
-	var pacienteTr = montaTr(paciente);
+	
 
 	var erros = validaPaciente(paciente);
 
@@ -40,11 +39,9 @@ botaoAdicionar.addEventListener("click",function(event){
 		//O return vazio faz que a função seja pulada;
 		return;
 	}
+	adicionaPacienteNaTabela(paciente);
 
-	// Insere o filho tr e coloca na tabela
-	var tabela = document.querySelector("#tabela-pacientes");
-	tabela.appendChild(pacienteTr);
-
+	
 	//Reseta o formulario limpando os campos
 	form.reset();
 	var mensagensErros = document.querySelector("#mensagens-erro");
@@ -52,6 +49,16 @@ botaoAdicionar.addEventListener("click",function(event){
 
 });
 
+
+function adicionaPacienteNaTabela(paciente){
+	//Função que criar a tr do paciente
+	var pacienteTr = montaTr(paciente);
+
+	// Insere o filho tr e coloca na tabela
+	var tabela = document.querySelector("#tabela-pacientes");
+	tabela.appendChild(pacienteTr);
+
+}
 
 //escuta o evento click quando o usuário clicar no titulo
 

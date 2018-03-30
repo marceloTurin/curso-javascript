@@ -8,8 +8,17 @@ botaoAdicionar.addEventListener("click",function(){
 
 	//Carrega a requisição
 	xhr.addEventListener("load", function(){
-		//Exibe a resposta da requisição
-		console.log(xhr.responseText);
+
+		//Recebe o texto da requisição
+		var resposta = xhr.responseText;
+
+		//Pega o texto da requição e passa  ele para um objeto JSON ou seja um array
+		var pacientes = JSON.parse(resposta);
+
+		//Adiciona os  pacientes na tabela
+		pacientes.forEach(function(paciente){
+			adicionaPacienteNaTabela(paciente);
+		})
 	})
 	xhr.send(); //Envia a requisição
 });
