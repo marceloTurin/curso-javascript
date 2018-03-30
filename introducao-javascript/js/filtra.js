@@ -13,7 +13,10 @@ campoFiltro.addEventListener("input",function(){
 			var tdNome = paciente.querySelector(".info-nome");
 			var nome = tdNome.textContent;
 
-			if (nome != this.value) { //Verifica se o texto  da td comparada é diferente da digitada
+			//Expressão Regular que pesquisa os nomes
+			var expressao = new RegExp(this.value,"i");
+
+			if (!expressao.test(nome)) { //Testa se expressão regular 
 				paciente.classList.add("invisivel");
 			}
 			else{
