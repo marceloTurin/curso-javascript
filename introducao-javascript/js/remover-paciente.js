@@ -21,8 +21,14 @@ tabela.addEventListener("dblclick",function(event){
 
 	var alvoEvento = event.target; // pega o alvo que foi clicado
 	var paiDoAlvo = alvoEvento.parentNode; // tranfere o alvo pro pai dele
-	paiDoAlvo.remove(); // remove o pai do evento
+	
+	paiDoAlvo.classList.add("fadeOut");
 
+	//Faz o javascript esperar algum tempo para fazer uma função
+	setTimeout(function(){
+		paiDoAlvo.remove(); // remove o pai do evento
+	},500);
+	
 	//event.target.parentNode.remove(); mesmo exemplo usando uma linha de codigo 
 
 });
